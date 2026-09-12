@@ -1,9 +1,30 @@
-import { reactive } from 'vue'
+import { reactive, watch } from 'vue'
 
-// Module-level state so it stays shared (and persists) across every component that imports this composable.
-const incidencias = reactive([])
+const STORAGE_KEY = 'ecosat-incidencias'
 
-let nextId = 1
+function cargarEstadoGuardado() {
+    try {
+        const guardado = JSON.parse(localStorage.getItem(STORAGE_KEY))
+        if (guardado && Array.isArray(guardado.incidencias)) return guardado
+    } catch {
+        // Datos corruptos en localStorage: se ignora y se parte de un estado vacío.
+    }
+    return { incidencias: [], nextId: 1 }
+}
+
+const estadoGuardado = cargarEstadoGuardado()
+
+const incidencias = reactive(estadoGuardado.incidencias)
+
+let nextId = estadoGuardado.nextId
+
+watch(
+    incidencias,
+    () => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ incidencias, nextId }))
+    },
+    { deep: true }
+)
 
 function registrarIncidencia({ titulo, descripcion, prioridad }) {
     incidencias.unshift({

@@ -12,19 +12,6 @@
     gap: 5%;
 }
 
-
-
-.reporteIncidenciaPrincipal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    min-height: 100vh;
-    width: 100%;
-    padding: 1% 0.5% 2rem;
-    gap: 1.5rem;
-}
-
 .informacionAdicional {
     width: min(90%, 900px);
     padding: 1.25rem 1.5rem;

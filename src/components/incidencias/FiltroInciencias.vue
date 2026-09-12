@@ -114,7 +114,7 @@
         </div>
         <div class="rowfilt">
             <div class="mincol">
-                <text>Estado:</text>
+                <span>Estado:</span>
                 <div class="dropdownwrap">
                     <div class="dropdown" @click="estadoAbierto = !estadoAbierto; prioridadAbierto = false">
                         <span>{{ etiquetaEstado }}</span>
@@ -132,7 +132,7 @@
                 </div>
             </div>
             <div class="mincol">
-                <text>Prioridad:</text>
+                <span>Prioridad:</span>
                 <div class="dropdownwrap">
                     <div class="dropdown" @click="prioridadAbierto = !prioridadAbierto; estadoAbierto = false">
                         <span>{{ etiquetaPrioridad }}</span>

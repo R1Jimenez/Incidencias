@@ -56,7 +56,7 @@ textarea.input {
     gap: 0.5rem;
 }
 
-.prioridadrow text {
+.prioridadrow span {
     color: #080E98;
     font-size: 1.25rem;
     font-weight: bold;
@@ -152,6 +152,14 @@ textarea.input {
     color: #080E98;
     border: 2px solid #080E98;
 }
+
+.modalexito {
+    border: 2px solid #2e7d32;
+}
+
+.modalexito h3 {
+    color: #2e7d32;
+}
 </style>
 
 <template>
@@ -173,15 +181,15 @@ textarea.input {
             <div class="prioridadrow">
                 <label>
                     <input type="radio" name="prioridad" value="baja" v-model="prioridad" required>
-                    <text>Baja</text>
+                    <span>Baja</span>
                 </label>
                 <label>
                     <input type="radio" name="prioridad" value="media" v-model="prioridad" required>
-                    <text>Media</text>
+                    <span>Media</span>
                 </label>
                 <label>
                     <input type="radio" name="prioridad" value="alta" v-model="prioridad" required>
-                    <text>Alta</text>
+                    <span>Alta</span>
                 </label>
             </div>
 
@@ -198,6 +206,14 @@ textarea.input {
             <button type="button" @click="mostrarError = false">Entendido</button>
         </div>
     </div>
+
+    <div v-if="mostrarExito" class="overlayerror" @click.self="mostrarExito = false">
+        <div class="modalerror modalexito">
+            <h3>Incidencia registrada</h3>
+            <p>La incidencia se registró correctamente.</p>
+            <button type="button" @click="mostrarExito = false">Entendido</button>
+        </div>
+    </div>
 </template>
 
 <script setup>
@@ -210,6 +226,7 @@ const titulo = ref('')
 const descripcion = ref('')
 const prioridad = ref('')
 const mostrarError = ref(false)
+const mostrarExito = ref(false)
 
 function autoGrow(event) {
     const textarea = event.target
@@ -236,5 +253,6 @@ function registrar() {
     })
 
     limpiar()
+    mostrarExito.value = true
 }
 </script>

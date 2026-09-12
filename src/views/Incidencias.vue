@@ -41,9 +41,7 @@
 
 <template>
     <div class="IncidenciasContent">
-        <div class="headerInc">
-            <h1>Incidencias</h1>
-        </div>
+        <Header />
 
         <FiltroInciencias v-model:estado="filtroEstado" v-model:prioridad="filtroPrioridad" />
 
@@ -71,6 +69,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import Header from '../components/Header.vue'
 import Incidencia from '../components/incidencias/Incidencia.vue';
 import FiltroInciencias from '../components/incidencias/FiltroInciencias.vue';
 import SinIncidencias from '../components/incidencias/SinIncidencias.vue';

@@ -12,19 +12,7 @@
     gap: 5%;
 }
 
-.reporteHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 98%;
-    height: 60px;
-    background-color: #080E98;
-    color: white;
-    border: 2px solid #4A8FC0;
-    border-radius: 22px;
-    flex-shrink: 0;
-}
+
 
 .reporteIncidenciaPrincipal {
     display: flex;
@@ -94,9 +82,7 @@
 
 <template>
     <div class="reporteIncidenciaPrincipal">
-        <div class="reporteHeader">
-            <h1>Reportar Incidencia</h1>
-        </div>
+        <Header />
 
         <div class="informacionAdicional">
             <h2>¿Cómo levantar una incidencia?</h2>
@@ -138,6 +124,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import Header from '../components/Header.vue'
 import Incidenciacontent from '../components/reportarincidencia/DescripcionIncidencia.vue'
 import IncidenciasReportadas from '../components/incidenciasreportadas.vue/IncidenciasReportadas.vue'
 

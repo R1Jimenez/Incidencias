@@ -7,17 +7,20 @@ const router = createRouter({
         {
             path: '/',
             name: 'landing',
-            component: LandingPage
+            component: LandingPage,
+            meta: { titulo: 'Incidencias de Ecosat' }
         },
         {
             path: '/reportar',
             name: 'ReportarIncidencia',
-            component: () => import('../views/ReportarIncidencia.vue')
+            component: () => import('../views/ReportarIncidencia.vue'),
+            meta: { titulo: 'Reportar Incidencia' }
         },
         {
             path: '/incidencias',
             name: 'Incidencias',
-            component: () => import('../views/Incidencias.vue')
+            component: () => import('../views/Incidencias.vue'),
+            meta: { titulo: 'Incidencias' }
         }
     ]
 })

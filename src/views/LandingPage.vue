@@ -45,6 +45,24 @@
     font-weight: bold;
 }
 
+.landingdescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 10%;
+    width: 80%;
+    height: 30%;
+    padding: 1%;
+    background-color: #FFFFFF;
+    border-radius: 22px;
+    border: 2px solid #080E98;
+    color: #080E98;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 .landingfooter{
     display: flex;
     flex-direction: row;
@@ -53,7 +71,6 @@
     padding: 1%;
     border-radius: 22px;
     margin-top: auto;
-    margin-bottom: 50px;
     gap: 5%;
 }
 
@@ -92,12 +109,20 @@
 
 <template>
     <div class="landingpage">
-        <div class="landingheader">
-            <h1>Incidencias de Ecosat</h1>
-        </div>
+        <Header />
 
         <div class="landingcontent">
             <p>Bienvenido a la página de incidencias de Ecosat. Aquí podrás ver y gestionar todas las incidencias reportadas.</p>
+        </div>
+
+        <div class="landingdescription">
+            <h2>Aquí puedes levantar una nueva incidencia o consultar las incidencias existentes.</h2>
+            <p>
+                Usa el botón "Reportar Incidencia" para completar un formulario con el
+                título, la descripción y la prioridad del problema que deseas reportar.
+                Usa el botón "Reporte de Incidencias" para ver el listado de incidencias
+                registradas, filtrarlas por estado o prioridad, y dar seguimiento a su progreso.
+            </p>
         </div>
 
         <div class="landingfooter">
@@ -108,11 +133,15 @@
                 Reporte de Incidencias
             </button>
         </div>
+
+        <Footer />
     </div>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router'
+import Header from '../components/Header.vue'
+import Footer from '../components/Footer.vue'
 
 const router = useRouter()
 

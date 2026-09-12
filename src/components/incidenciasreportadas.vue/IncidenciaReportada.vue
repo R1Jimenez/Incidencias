@@ -16,6 +16,15 @@
     color: #080E98;
 }
 
+.incidenciacontent .descripcion {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
 .incidenciacontent .meta {
     display: flex;
     gap: 1rem;
@@ -28,7 +37,7 @@
 <template>
     <div class="incidenciacontent">
         <h3>{{ titulo }}</h3>
-        <p>{{ descripcion }}</p>
+        <p class="descripcion">{{ descripcion }}</p>
         <div class="meta">
             <span>Prioridad: {{ prioridad }}</span>
             <span>Estado: {{ estado }}</span>

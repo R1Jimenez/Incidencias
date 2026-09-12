@@ -30,6 +30,8 @@
 .modal .descripcion {
     color: #252525;
     line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .modal .prioridad {

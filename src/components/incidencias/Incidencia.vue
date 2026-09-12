@@ -6,7 +6,7 @@
 
     box-sizing: border-box;
     width: 90%;
-    min-height: 200px;
+    height: 200px;
     padding: 1rem;
     background-color: #F0F0F0;
     border-radius: 22px;
@@ -17,6 +17,18 @@
 
 .incidencia h2 {
     color: #080E98;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.incidencia .descripcion {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
 .estado {
@@ -40,7 +52,7 @@
 <template>
     <div class="incidencia" :class="`prioridad-${prioridad}`" @click="emit('click')">
         <h2>{{ titulo }}</h2>
-        <p>{{ descripcion }}</p>
+        <p class="descripcion">{{ descripcion }}</p>
         <p class="estado">Estado: {{ estado }}</p>
     </div>
 </template>
